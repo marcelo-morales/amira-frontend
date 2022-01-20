@@ -1,7 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 import React, {useState} from "react";
-import data from "./mock-data.json"
+import data from "./mock-data.json";
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Avatar from '@mui/material/Avatar';
+import Switch from '@mui/material/Switch';
+
+import greencircle from '../images/';
 
 const App = () => {
 
@@ -30,8 +38,6 @@ const App = () => {
     event.preventDefault();
 
     const newContact = {
-      
-
       fullName: addFormData.fullName,
       address: addFormData.phoneNumber,
       email: addFormData.email,
@@ -42,6 +48,22 @@ const App = () => {
 
     <h2>Scoring Student Name Assessment</h2>
 
+    <h2>Accuracy: 95%</h2>
+
+    <FormGroup>
+      <FormControlLabel control={<Switch defaultChecked />} label="Story" />
+      <FormControlLabel disabled control={<Switch />} label="Running Record" />
+    </FormGroup>
+
+   
+    <Stack spacing={2} direction="row">
+<Button variant="contained">Saved</Button>
+</Stack>
+
+<Stack direction="row" spacing={2}>
+      <Avatar alt="Remy Sharp" src="../images/green-circle.png" />
+</Stack>
+
     <table>
       <thead>
         <tr>
@@ -51,9 +73,10 @@ const App = () => {
           <th>S-C</th>
           <th>Skip</th>
           <th>M-P</th>
-     
+     +-
         </tr>
       </thead>
+      
       <tbody>
         {contacts.map((contact) => (
         <tr>

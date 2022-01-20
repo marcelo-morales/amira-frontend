@@ -9,7 +9,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Avatar from '@mui/material/Avatar';
 import Switch from '@mui/material/Switch';
 
-import greencircle from '../images/';
+//import greencircle from '/images/green-circle.png';
 
 const App = () => {
 
@@ -61,7 +61,18 @@ const App = () => {
 </Stack>
 
 <Stack direction="row" spacing={2}>
-      <Avatar alt="Remy Sharp" src="../images/green-circle.png" />
+      <Avatar alt="Remy Sharp" src="images/green-circle.png" /> 
+      <h2>Correct</h2>
+      
+      <Avatar alt="Remy Sharp" src="../images/green-circle.png" /> 
+      <h2>Incorrect</h2>
+
+      <Avatar alt="Remy Sharp" src="../images/green-circle.png" /> 
+      <h2>Not read</h2>
+
+      <Avatar alt="Remy Sharp" src="../images/green-circle.png" /> 
+      <h2>Flagged</h2>
+
 </Stack>
 
     <table>

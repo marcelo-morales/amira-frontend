@@ -17,6 +17,7 @@ import yellowcircle from './images/yellow-circle.png';
 
 const App = () => {
 
+
   const [contacts, setContacts] = useState(data);
   const [addFormData, setAddFormData] = useState({
     sentence:'',
@@ -79,6 +80,43 @@ const App = () => {
 
 </Stack>
 
+<Stack spacing={2} direction="row">
+      <Button onClick={() => {
+    alert('clicked');
+  }} variant="outlined">Types of Errors</Button>
+      <Button variant="outlined">Scores</Button>
+</Stack>
+
+<h2>Word</h2>
+
+<h2>Automated Skip Error</h2>
+
+<h2>Edit Manually</h2>
+<Stack spacing={2} direction="row">
+  <Button variant="outlined" href="#outlined-buttons">
+    Substitutions
+  </Button>
+  <Button variant="outlined" href="#outlined-buttons">
+    Repetitions
+  </Button>
+  <Button variant="outlined" href="#outlined-buttons">
+    Additions & Self-Corrections
+  </Button>
+  <Button variant="outlined" href="#outlined-buttons">
+    Skips
+  </Button>
+  <Button variant="outlined" href="#outlined-buttons">
+    Reversals
+  </Button>
+  <Button variant="outlined" href="#outlined-buttons">
+    Long Silence
+  </Button>
+  <Button variant="outlined" href="#outlined-buttons">
+    Unrelated chatter
+  </Button>
+</Stack>
+
+
     <table>
       <thead>
         <tr>
@@ -88,7 +126,7 @@ const App = () => {
           <th>S-C</th>
           <th>Skip</th>
           <th>M-P</th>
-     +-
+     
         </tr>
       </thead>
       

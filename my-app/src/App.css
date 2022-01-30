@@ -86,3 +86,28 @@ form * {
   height: 100px;
   background: black;
 }
+
+h1 {
+  text-align:center;
+}
+
+h2.title{
+  text-align: center;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+}
+
+h2.accuracy {
+  position: absolute;
+  top: 1px;
+  right: 5px;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.saveButton{
+  position:absolute; 
+  top:0; right:0;
+}

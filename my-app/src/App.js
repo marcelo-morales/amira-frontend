@@ -14,6 +14,8 @@ import redcircle from './images/red-circle.png';
 import graycircle from './images/gray-circle.png';
 import yellowcircle from './images/yellow-circle.png';
 
+import StoryRunningRecord from "./components/StoryRunningRecord.js";
+
 async function requestRecorder() {
   const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
   return new MediaRecorder(stream);
@@ -99,9 +101,13 @@ const App = () => {
 
   return <div className="app-container">
 
-    <h2>Scoring Student Name Assessment</h2>
+    <h2 className="title">Scoring Ran Liu's Assessment</h2>
 
-    <h2>Accuracy: 95%</h2>
+    <h2 className="accuracy">Accuracy: 95%</h2>
+
+    <div className="container">
+      <StoryRunningRecord />
+    </div>
 
     <FormGroup>
       <FormControlLabel control={<Switch defaultChecked />} label="Story" />
@@ -110,7 +116,7 @@ const App = () => {
 
    
     <Stack spacing={2} direction="row">
-<Button variant="contained">Saved</Button>
+<Button variant="contained" className="saveButton">Saved</Button>
 </Stack>
 
 <Stack direction="row" spacing={2}>
@@ -135,9 +141,9 @@ const App = () => {
       <Button variant="outlined">Scores</Button>
 </Stack>
 
-<h2>Word</h2>
+<h2>Word -> Adam</h2>
 
-<h2>Automated Skip Error</h2>
+<h2>Automated Skip Error -> Manually Changed</h2>
 
 <h2>Edit Manually</h2>
 <Stack spacing={2} direction="row">
@@ -190,6 +196,8 @@ const App = () => {
         </tr>
         ))}
       </tbody>
+
+      
     </table>
 
     <audio src={audioURL} controls />
@@ -206,7 +214,36 @@ const App = () => {
         </em>
       </p>
 
-      <div className="rectangle" />   
+      <h1>Scores</h1>
+
+      <table>
+      <thead>
+        <tr>
+          <th>Page</th>
+          <th>E</th>
+          <th>S-C</th>
+          <th>Skip</th>
+          <th>M-P</th>
+     
+        </tr>
+      </thead>
+      
+      <tbody>
+        {contacts.map((contact) => (
+        <tr>
+              <td>{contact.id}</td>
+              <td>{contact.error}</td>
+              <td>{contact.sc}</td>
+              <td>{contact.skip}</td>
+              <td>{contact.mp}</td>
+        </tr>
+        ))}
+      </tbody>
+
+      
+    </table>
+
+      
         
   </div>
 

@@ -79,3 +79,10 @@ form td:last-child {
 form * {
   font-size: 28px;
 }
+
+.rectangle {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background: black;
+}

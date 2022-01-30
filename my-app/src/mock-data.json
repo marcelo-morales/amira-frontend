@@ -1,7 +1,7 @@
 [
     {
       "id": 1,
-      "sentence": "sentence 1",
+      "sentence": "For spring break, Adam and his family were going to visit his grandparents.",
       "error": "1",
       "sc": "0",
       "skip": "0",
@@ -9,7 +9,7 @@
     },
     {
         "id": 2,
-        "sentence": "sentence 2",
+        "sentence": "Just two days before the vacation, he fell off his bike. Crack!",
         "error": "1",
         "sc": "0",
         "skip": "0",
@@ -17,7 +17,7 @@
       },
       {
         "id": 3,
-        "sentence": "sentence 3",
+        "sentence": "  Adam had never felt such a pain   ",
         "error": "1",
         "sc": "0",
         "skip": "0",
@@ -25,7 +25,7 @@
       },
       {
         "id": 4,
-        "sentence": "sentence 4",
+        "sentence": "Adam’s mother took him to the hospital.",
         "error": "1",
         "sc": "0",
         "skip": "0",
@@ -33,7 +33,7 @@
       },
       {
         "id": 5,
-        "sentence": "sentence 5",
+        "sentence": "He had to have X rays and get a shot. ",
         "error": "1",
         "sc": "0",
         "skip": "0",

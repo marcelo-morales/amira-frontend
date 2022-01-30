@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import data from "./mock-data.json";
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
@@ -14,8 +14,56 @@ import redcircle from './images/red-circle.png';
 import graycircle from './images/gray-circle.png';
 import yellowcircle from './images/yellow-circle.png';
 
+async function requestRecorder() {
+  const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+  return new MediaRecorder(stream);
+}
+
+const useRecorder = () => {
+  const [audioURL, setAudioURL] = useState("");
+  const [isRecording, setIsRecording] = useState(false);
+  const [recorder, setRecorder] = useState(null);
+
+  useEffect(() => {
+    // Lazily obtain recorder first time we're recording.
+    if (recorder === null) {
+      if (isRecording) {
+        requestRecorder().then(setRecorder, console.error);
+      }
+      return;
+    }
+
+    // Manage recorder state.
+    if (isRecording) {
+      recorder.start();
+    } else {
+      recorder.stop();
+    }
+
+    // Obtain the audio when ready.
+    const handleData = e => {
+      setAudioURL(URL.createObjectURL(e.data));
+    };
+
+    recorder.addEventListener("dataavailable", handleData);
+    return () => recorder.removeEventListener("dataavailable", handleData);
+  }, [recorder, isRecording]);
+
+  const startRecording = () => {
+    setIsRecording(true);
+  };
+
+  const stopRecording = () => {
+    setIsRecording(false);
+  };
+
+  return [audioURL, isRecording, startRecording, stopRecording];
+};
+
 
 const App = () => {
+
+  let [audioURL, isRecording, startRecording, stopRecording] = useRecorder();
 
 
   const [contacts, setContacts] = useState(data);
@@ -144,9 +192,26 @@ const App = () => {
       </tbody>
     </table>
 
+    <audio src={audioURL} controls />
+      <button onClick={startRecording} disabled={isRecording}>
+        start recording
+      </button>
+      <button onClick={stopRecording} disabled={!isRecording}>
+        stop recording
+      </button>
 
+      <p>
+        <em>
+          (Created for menon ed tech fellowship)
+        </em>
+      </p>
+
+      <div className="rectangle" />   
+        
   </div>
- 
+
+  
+
   
 }
 
